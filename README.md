@@ -12,18 +12,16 @@ Signed Globally Unique Identifier (SGUID) generator.
 * [Use case](#use-case)
 * [API](#api)
 * [Usage](#Usage)
-* [Generating key pair][#generating-key-pair]
+* [Generating key pair](#generating-key-pair)
 
 ## Implementation
 
-* SGUID is using aes-256-gcm encryption.
-* Identifiers are encoded using URL-safe base64 encoding.
+* SGUID uses [Ed25519 public-key signature system](https://github.com/dchest/tweetnacl-js/blob/master/README.md#signatures).
+* The resulting signature is encoded using URL-safe base64 encoding.
 
 ## Use case
 
 SGUID is used to mitigate certain types of DDoS attacks.
-
-* [Protecting APIs from the DDoS attacks by encrypting the PKs](https://medium.com/p/97a8a5090c89)
 
 ## API
 
