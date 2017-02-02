@@ -1,0 +1,22 @@
+{
+  "env": {
+    "development": {
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  },
+  "plugins": [
+    "transform-flow-comments"
+  ],
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": 5
+        }
+      }
+    ]
+  ]
+}

@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - node
+  - 7
+  - 6
+  - 5
+before_install:
+  - npm config set depth 0
+  - npm install --global npm@4
+script:
+  - NODE_ENV=development npm run build
+  - rm -fr ./dist
+  - NODE_ENV=production npm run build
+  - rm -fr ./dist
+  - npm run lint
+  - nyc --silent npm run test
+  - nyc report --reporter=text-lcov | coveralls
+  - nyc check-coverage --lines 90
+after_success:
+  - rm -fr ./dist
+  - NODE_ENV=production npm run build
+  - semantic-release pre && npm publish && semantic-release post
+notifications:
+  email: false
+sudo: false
