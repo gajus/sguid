@@ -23,6 +23,8 @@ Signed Globally Unique Identifier (SGUID) generator.
 
 SGUID is used to mitigate certain types of DDoS attacks.
 
+* [Protecting APIs from the DDoS attacks by signing the resource identifiers](https://medium.com/@gajus/protecting-apis-from-the-ddos-attacks-by-signing-the-pks-c1eca7cc7725#.7b5czcv5h)
+
 ## API
 
 ```js
