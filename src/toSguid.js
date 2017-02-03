@@ -9,6 +9,9 @@ import {
 import {
   escape as urlEscape
 } from 'base64-url';
+import {
+  SguidError
+} from './errors';
 import type {
   ToSguidType
 } from './types';
@@ -20,6 +23,18 @@ import type {
  * @param id Resource identifier.
  */
 const toSguid: ToSguidType = (base64SecretKey, namespace, type, id) => {
+  if (!namespace) {
+    throw new SguidError('Namespace values cannot be falsy.');
+  }
+
+  if (!type) {
+    throw new SguidError('Resource type name values cannot be falsy.');
+  }
+
+  if (!id) {
+    throw new SguidError('Resource identifier values cannot be falsy.');
+  }
+
   const payload = JSON.stringify({
     id,
     namespace,
