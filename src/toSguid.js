@@ -17,7 +17,7 @@ import type {
 } from './types';
 
 /**
- * @param secretKey {@see https://github.com/gajus/sguid#generating-secret-key}
+ * @param base64SecretKey {@see https://github.com/gajus/sguid#generating-key-pair}
  * @param namespace A namespace of the GUID (e.g. company name or the application name).
  * @param type A resource type name (e.g. article).
  * @param id Resource identifier.
