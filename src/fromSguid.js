@@ -1,13 +1,9 @@
 // @flow
 
 import nacl from 'tweetnacl';
-import {
-  decodeBase64,
-  encodeUTF8
-} from 'tweetnacl-util';
-import {
-  unescape as urlUnescape
-} from 'base64-url';
+// eslint-disable-next-line import/no-namespace
+import * as base64 from '@stablelib/base64';
+// eslint-disable-next-line import/no-namespace
 import {
   InvalidSguidError,
   UnexpectedNamespaceValueError,
@@ -26,10 +22,10 @@ const fromSguid: FromSguidType = (base64PublicKey, expectedNamespace, expectedRe
   let payload;
 
   try {
-    payload = nacl.sign.open(decodeBase64(sguid), decodeBase64(urlUnescape(base64PublicKey)));
+    payload = nacl.sign.open(base64.decodeURLSafe(sguid), base64.decodeURLSafe(base64PublicKey));
 
     if (payload !== null) {
-      payload = JSON.parse(encodeUTF8(payload));
+      payload = JSON.parse(Buffer.from(payload).toString());
     }
   } catch (error) {
     throw new InvalidSguidError(sguid);

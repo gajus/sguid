@@ -1,38 +1,36 @@
 {
-  "author": {
-    "email": "gajus@gajus.com",
-    "name": "Gajus Kuizinas",
-    "url": "http://gajus.com"
-  },
+  "author": "Rahmat Budiharso <rbudiharso@gmail.com>",
   "ava": {
     "babel": "inherit",
     "require": [
       "babel-register"
     ]
   },
-  "bin": "dist/bin/index.js",
+  "bin": {
+    "sguid": "dist/bin/index.js"
+  },
   "dependencies": {
-    "base64-url": "^1.3.3",
+    "@stablelib/base64": "^0.7.2",
+    "@stablelib/utf8": "^0.10.1",
     "es6-error": "^4.0.1",
-    "tweetnacl": "^0.14.5",
-    "tweetnacl-util": "^0.13.5",
-    "yargs": "^6.6.0"
+    "tweetnacl": "^1.0.0",
+    "yargs": "^12.0.5"
   },
   "description": "Signed Globally Unique Identifier (SGUID) generator.",
   "devDependencies": {
-    "ava": "^0.17.0",
+    "ava": "^0.25.0",
     "babel-cli": "^6.18.0",
-    "babel-plugin-istanbul": "^3.0.0",
+    "babel-plugin-istanbul": "^5.1.0",
     "babel-plugin-transform-flow-comments": "^6.22.0",
     "babel-preset-env": "^1.1.8",
     "benchmark": "^2.1.3",
-    "coveralls": "^2.11.15",
-    "eslint": "^3.11.1",
-    "eslint-config-canonical": "^6.0.0",
-    "flow-bin": "^0.37.4",
-    "husky": "^0.12.0",
-    "nyc": "^10.0.0",
-    "semantic-release": "^6.3.5"
+    "coveralls": "^3.0.2",
+    "eslint": "^5.10.0",
+    "eslint-config-canonical": "^15.0.1",
+    "flow-bin": "^0.87.0",
+    "husky": "^1.2.0",
+    "nyc": "^13.1.0",
+    "semantic-release": "^15.12.4"
   },
   "engines": {
     "node": ">5.0.0"
@@ -43,7 +41,7 @@
   ],
   "license": "BSD-3-Clause",
   "main": "dist/index.js",
-  "name": "sguid",
+  "name": "@rbudiharso/sguid",
   "nyc": {
     "include": [
       "src/**/*.js"
@@ -59,7 +57,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gajus/sguid"
+    "url": "https://github.com/rbudiharso/sguid.git"
   },
   "scripts": {
     "benchmark": "NODE_ENV=production node benchmark/test.js",
@@ -68,5 +66,5 @@
     "precommit": "npm run test && npm run lint",
     "test": "NODE_ENV=development ava --verbose"
   },
-  "version": "1.0.2"
+  "version": "1.4.0"
 }

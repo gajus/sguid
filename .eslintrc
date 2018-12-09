@@ -3,5 +3,8 @@
     "canonical",
     "canonical/flowtype"
   ],
-  "root": true
+  "root": true,
+  "rules": {
+    "flowtype/require-compound-type-alias": "never"
+  }
 }

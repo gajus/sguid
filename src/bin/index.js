@@ -2,9 +2,8 @@
 
 import yargs from 'yargs';
 import nacl from 'tweetnacl';
-import {
-  encodeBase64
-} from 'tweetnacl-util';
+// eslint-disable-next-line import/no-namespace
+import * as base64 from '@stablelib/base64';
 
 // eslint-disable-next-line no-unused-expressions
 yargs
@@ -15,10 +14,10 @@ yargs
       const keyPair = nacl.sign.keyPair();
 
       // eslint-disable-next-line no-console
-      console.log('secret key:', encodeBase64(keyPair.secretKey));
+      console.log('secret key:', base64.encodeURLSafe(keyPair.secretKey));
 
       // eslint-disable-next-line no-console
-      console.log('public key:', encodeBase64(keyPair.publicKey));
+      console.log('public key:', base64.encodeURLSafe(keyPair.publicKey));
     }
   })
   .demandCommand(1)
