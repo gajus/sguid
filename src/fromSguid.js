@@ -26,7 +26,7 @@ const fromSguid: FromSguidType = (base64PublicKey, expectedNamespace, expectedRe
   let payload;
 
   try {
-    payload = nacl.sign.open(decodeBase64(sguid), decodeBase64(urlUnescape(base64PublicKey)));
+    payload = nacl.sign.open(decodeBase64(urlUnescape(sguid)), decodeBase64(urlUnescape(base64PublicKey)));
 
     if (payload !== null) {
       payload = JSON.parse(encodeUTF8(payload));
